@@ -14,8 +14,7 @@ export const useNoteData = defineStore('NoteData', () => {
   // 定义需要持久化的数据
   const Data = ref({
     SiteTitle: "Note App",
-    Auther: "G22计应七班-唐志平-202211052",
-    BGImgList: [{ url: "@/assets/images/bg.jpg", type: "init" }],
+    Auther: "唐志平-202211052",
     NoteList: [
       {
         Title: 'Title',
@@ -59,32 +58,6 @@ export const useNoteData = defineStore('NoteData', () => {
   }
 
   /**
-   * update BGImgList of Data
-   * @returns void
-   */
-  const PushBG = (urls: { url: string; type: string }) => {
-    if (Data.value.BGImgList[0].type === "init") {
-      Data.value.BGImgList = []
-    }
-    Data.value.BGImgList.push(urls);
-  }
-
-
-  /**
-   * get img url
-   * @returns string of img url
-   */
-  const GetImgUrl = () => {
-    if (Data.value.BGImgList.length === 1) {
-      return Data.value.BGImgList[0].url
-    } else {
-      const randomIndex = Math.floor(Math.random() * Data.value.BGImgList.length);
-      console.log(Data.value.BGImgList[randomIndex].url)
-      return Data.value.BGImgList[randomIndex].url
-    }
-  }
-
-  /**
    * load data from localStorage
    */
   const loadFromLocalStorage = () => {
@@ -103,5 +76,5 @@ export const useNoteData = defineStore('NoteData', () => {
     console.log("Saving data to localStorage")
     localStorage.setItem('Data', JSON.stringify(Data.value));
   }
-  return { isAdding, toggleAdding, Data, getAuther, GetImgUrl, AddNote, DropAllNote, DropOneNote, loadFromLocalStorage, saveToLocalStorage, PushBG }
+  return { isAdding, toggleAdding, Data, getAuther, AddNote, DropAllNote, DropOneNote, loadFromLocalStorage, saveToLocalStorage }
 })

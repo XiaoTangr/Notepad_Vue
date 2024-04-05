@@ -4,7 +4,7 @@
       <theitemrender />
     </el-card>
     <theFooter />
-    <theBGimg />
+
     <AddNoteWindow />
   </div>
 
@@ -14,7 +14,7 @@
 import theFooter from '@/components/theFooter.vue'
 import theitemrender from '@/components/theItemRender.vue'
 import AddNoteWindow from '@/components/theAddNoteWindow.vue'
-import theBGimg from "@/components/theBGimg.vue"
+
 import { useNoteData } from './stores/noteData';
 import { onMounted, ref, watch } from 'vue';
 

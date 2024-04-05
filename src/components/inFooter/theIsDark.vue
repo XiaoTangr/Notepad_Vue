@@ -9,25 +9,42 @@
     License :MIT
 -->
 <template>
-    <el-button size='large' @click="toggleDark" :type="isDark ? 'primary' : 'info'" :icon="DarkIcon" />
+    <el-tooltip :content="isDark ? 'Dark Mode' : 'Light Mode'">
+        <el-button size='large' plain @click="toggleDark" :color="isDark ? '#181818' : '#cdcdcd'" :icon="DarkIcon" />
+    </el-tooltip>
 </template>
 
 <script setup lang="ts">
 
 import { useDark } from '@vueuse/core'
-import { ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { MoonNight, PartlyCloudy } from '@element-plus/icons-vue'
 const isDark = useDark();
 const DarkIcon = ref(isDark.value ? MoonNight : PartlyCloudy)
+
 const toggleDark = () => {
     isDark.value = !isDark.value
 }
+const body = document.querySelector('body')
+onMounted(() => {
+
+    if (isDark.value) {
+        DarkIcon.value = MoonNight
+        body.classList.add('darkbody')
+    } else {
+        DarkIcon.value = PartlyCloudy
+        body.classList.remove('darkbody')
+    }
+})
 // 监听主题更新
 watch(isDark, () => {
     if (isDark.value) {
         DarkIcon.value = MoonNight
+        body.classList.add('darkbody')
+
     } else {
         DarkIcon.value = PartlyCloudy
+        body.classList.remove('darkbody')
     }
 })
 

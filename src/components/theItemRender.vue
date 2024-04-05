@@ -59,8 +59,8 @@ const onFinishOne = (index: any) => {
  */
 const onCancelDropOne = () => {
     ElNotification({
-        title: '(゜-゜)つロ 干杯~',
-        message: h('i', { style: 'color: primary' }, '完成了,噢耶!!!'),
+        title: '加油！',
+        message: h('i', { style: 'color: primary' }, '还没完成哦,继续加油!!!'),
         type: 'success',
 
         duration: 2000, position: 'bottom-right',

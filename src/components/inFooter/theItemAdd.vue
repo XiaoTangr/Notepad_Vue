@@ -2,7 +2,10 @@
     A button to display the add window
 -->
 <template>
-    <el-button @click="OpenAddWindow" size='large' :icon="Plus" class="item-add-Btn" type="primary"></el-button>
+    <el-tooltip content="新建项目">
+        <el-button @click="OpenAddWindow" color="#409EFF" plain size='large' :icon="Plus" class="item-add-Btn"
+            type="primary"></el-button>
+    </el-tooltip>
 </template>
 
 <script setup lang="ts">
