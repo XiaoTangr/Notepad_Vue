@@ -31,9 +31,9 @@ const APIs = [
                 return res.data.data;
             }
         }
-    },{
-        URL:"https://api.lucksss.com/api/cosbz",
-        getres:(res:any)=>{
+    }, {
+        URL: "https://api.lucksss.com/api/cosbz",
+        getres: (res: any) => {
             return "https://api.lucksss.com/api/cosbz"
         }
     }
