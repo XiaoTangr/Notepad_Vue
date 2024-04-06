@@ -22,7 +22,6 @@
                 {{ item.Content }}
                 <template #footer>
                     <div class="noteItem-Footer-Container">
-
                         <el-popconfirm title="确定完成了？" @confirm="onFinishOne(item)" @cancel="onCancelDropOne">
                             <template #reference>
                                 <el-button size="large" circle :icon='Select' @click="" type="primary"></el-button>
