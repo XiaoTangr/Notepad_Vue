@@ -18,11 +18,11 @@ import AddNoteWindow from '@/components/theAddNoteWindow.vue'
 import { useNoteData } from './stores/noteData';
 import { onMounted, ref, watch } from 'vue';
 
-
 let noteData = useNoteData();
 
 // 使用LocalStorage存储数据
 onMounted(() => {
+
   noteData.loadFromLocalStorage()
 })
 watch(noteData, () => {
@@ -42,16 +42,32 @@ watch(noteData, () => {
 .ItemRender-Container {
   margin: .5em;
   overflow-y: auto;
-  width: 100%;
-  max-height: 70%;
+  width: 70%;
+  height: 70%;
+  max-height: 90%;
   display: block;
+  transition: all 0.7s ease-in-out;
 }
 
+
 /* 小屏设备（屏幕宽度小于 768px）  */
+
 @media screen and (max-width: 768px) {
+
+
   .ItemRender-Container {
-    height: auto;
-    max-height: 80%;
+    width: 100%;
+    height: 85%;
+  }
+}
+
+/* 大屏设备（屏幕宽度大于1080px）  */
+@media screen and (min-width: 1080px) {
+
+
+  .ItemRender-Container {
+    width: 60%;
+    height: 70%;
   }
 }
 </style>

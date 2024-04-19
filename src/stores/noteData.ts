@@ -11,6 +11,8 @@ export const useNoteData = defineStore('NoteData', () => {
   const toggleAdding = () => {
     isAdding.value = !isAdding.value
   }
+
+  
   // 定义需要持久化的数据
   const Data = ref({
     SiteTitle: "Note App",

@@ -25,7 +25,7 @@ const DarkIcon = ref(isDark.value ? MoonNight : PartlyCloudy)
 const toggleDark = () => {
     isDark.value = !isDark.value
 }
-const body = document.querySelector('body')
+const body = document.body as HTMLBodyElement;
 onMounted(() => {
 
     if (isDark.value) {

@@ -51,22 +51,21 @@ const onSubmit = () => {
         })
     } else {
         form.value.CreateDate = new Date().toLocaleString();
-        noteData.isAdding = false;
+
         noteData.AddNote(form.value);
         form.value = {
             Title: '',
             CreateDate: '',
             Content: ''
         }
-
         ElNotification({
             title: '(゜-゜)つロ 干杯~',
             message: h('i', { style: 'color: primary' }, '添加了一条待办！\n加油去完成它叭'),
             type: 'success',
-
             duration: 2000,
             position: 'bottom-right',
         })
+        noteData.isAdding = false;
     }
 
 

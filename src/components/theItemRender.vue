@@ -5,11 +5,16 @@
 -->
 <template>
     <div class="noteItem-Container">
+
         <!-- 没有数据时显示的内容 -->
         <div v-if="noteDate.Data.NoteList.length == 0" class="noteItem-NoDataContainer">
             <h2>没有数据！</h2>点击下面的按钮添加数据叭！<br>(゜-゜)つロ 干杯~
         </div>
-        <div v-for="(item, index) in noteDate.Data.NoteList" :key="index" class="noteItem-InnerContainer">
+        <div class="noteItem-Counter" v-else>
+            还有 {{ noteDate.Data.NoteList.length }} 件事没有完成哦~
+        </div>
+        <div v-for="(item, index) in noteDate.Data.NoteList.slice().reverse()" :key="index"
+            class="noteItem-InnerContainer">
             <el-card shadow="hover">
                 <template #header>
                     <div class="noteItem-Title-Container">
@@ -94,5 +99,23 @@ const onCancelDropOne = () => {
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.noteItem-Counter {
+    background: var(--footer-bg-color);
+    border: 1px solid var(--el-border-color);
+    box-shadow: var(--el-box-shadow);
+    backdrop-filter: blur(1em) !important;
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: .5em 1em;
 }
 </style>
